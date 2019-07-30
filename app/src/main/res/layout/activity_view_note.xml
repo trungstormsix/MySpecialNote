@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:background="#fff"
+    android:clipToPadding="false"
+    tools:context=".ViewNoteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tlb_view_note"
+        style="@style/ActionBarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/action_bar_background"
+        android:backgroundTint="#fff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ActionBarTheme" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit_note"
+        style="@style/FAB"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#fff"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/colorLightGray"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorLightGray"
+        app:srcCompat="@drawable/round_edit_black_48" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tlb_view_note"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="0dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="23dp">
+
+            <TextView
+                android:id="@+id/lbl_note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_view_datetime"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="23dp"
+                android:ems="10"
+                android:inputType="textPersonName|text"
+                android:paddingStart="3dp"
+                android:text="c"
+                android:textColor="@color/colorTrueBlack"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_note_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/lbl_note_title"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:gravity="start|top"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:text="c"
+                android:textColor="@color/colorTrueBlack"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/img_view_note"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="2dp"
+                android:maxHeight="280dp"
+                android:minHeight="230dp"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:srcCompat="@android:color/white" />
+
+            <ProgressBar
+                android:id="@+id/prg_view_image"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/img_view_note"
+                android:layout_alignTop="@+id/img_view_note"
+                android:layout_alignEnd="@+id/img_view_note"
+                android:layout_alignBottom="@+id/img_view_note"
+                android:layout_marginStart="163dp"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="160dp"
+                android:layout_marginBottom="97dp"
+                android:background="#00FFFFFF"
+                android:elevation="2dp"
+                android:indeterminateTint="@color/colorGray"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/lbl_view_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_view_note"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="TextView"
+                android:textColor="@color/colorGray" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/prg_view_note"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#00FFFFFF"
+        android:elevation="2dp"
+        android:indeterminateTint="@color/colorGray"
+        android:visibility="gone" />
+
+</RelativeLayout>

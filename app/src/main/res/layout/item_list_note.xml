@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <View
+        android:id="@+id/color_layout"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:background="#000"
+        android:orientation="vertical"></View>
+
+    <TextView
+        android:id="@+id/item_lbl_note_title"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/img_item_list"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/img_item_list"
+        android:gravity="start|top"
+        android:maxWidth="220dp"
+        android:text="TextView"
+        android:textColor="@color/colorTrueBlack"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_lbl_note_datetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/item_lbl_note_title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toEndOf="@+id/item_lbl_note_title"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/img_item_list"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/color_layout"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:srcCompat="@drawable/round_insert_photo_24" />
+
+    <TextView
+        android:id="@+id/item_lbl_note_content"
+        android:layout_width="336dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/item_lbl_note_title"
+        android:layout_alignStart="@+id/item_lbl_note_title"
+        android:layout_alignEnd="@+id/item_lbl_note_datetime"
+        android:layout_alignBottom="@+id/img_item_list"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="bottom|left"
+        android:text="TextView"
+        android:textColor="@color/colorGray"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/prg_img_item_list"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignStart="@+id/img_item_list"
+        android:layout_alignTop="@+id/img_item_list"
+        android:layout_alignEnd="@+id/img_item_list"
+        android:layout_alignBottom="@+id/img_item_list"
+        android:layout_marginTop="0dp"
+        android:indeterminateTint="@color/colorGray" />
+
+</RelativeLayout>

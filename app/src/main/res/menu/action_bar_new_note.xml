@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btn_attach_img"
+        android:icon="@drawable/round_attach_file_24"
+        android:title="@string/nh_k_m_nh"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btn_delete_note"
+        android:icon="@drawable/round_delete_24"
+        android:title="Xoá"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/btn_settings"
+        android:title="Cài đặt"
+        app:showAsAction="never" />
+</menu>

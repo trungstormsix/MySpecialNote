@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:background="#fff"
+    android:clipToPadding="false"
+    tools:context=".AddNewNoteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tlb_add_new_note"
+        style="@style/ActionBarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/action_bar_background"
+        android:backgroundTint="#fff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ActionBarTheme" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_save_note"
+        style="@style/FAB"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#fff"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/colorLightGray"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorLightGray"
+        app:srcCompat="@drawable/round_save_black_48" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tlb_add_new_note"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="0dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="23dp">
+
+            <EditText
+                android:id="@+id/edt_note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_note"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:ems="10"
+                android:hint="Tiêu đề ghi chú"
+                android:inputType="textPersonName|text"
+                android:textColor="@color/colorTrueBlack"
+                android:textColorHint="@color/colorGray"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edt_note_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/edt_note_title"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Nội dung"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:textColor="@color/colorTrueBlack"
+                android:textColorHint="@color/colorGray"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/btn_remove_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/img_note"
+                android:layout_alignTop="@+id/img_note"
+                android:layout_alignEnd="@+id/img_note"
+                android:layout_marginStart="315dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:elevation="3dp"
+                android:foreground="@drawable/round_clear_24"
+                android:visibility="gone"
+                app:srcCompat="@drawable/round_clear_24"
+                tools:srcCompat="@drawable/round_clear_24" />
+
+            <ImageView
+                android:id="@+id/img_note"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="2dp"
+                android:maxHeight="280dp"
+                android:minHeight="230dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                app:srcCompat="@android:color/white" />
+
+            <ProgressBar
+                android:id="@+id/prg_image"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/img_note"
+                android:layout_alignTop="@+id/img_note"
+                android:layout_alignEnd="@+id/img_note"
+                android:layout_alignBottom="@+id/img_note"
+                android:layout_marginStart="163dp"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="160dp"
+                android:layout_marginBottom="97dp"
+                android:background="#00FFFFFF"
+                android:elevation="2dp"
+                android:indeterminateTint="@color/colorGray"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/prg_activity_add_note"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:elevation="9dp"
+        android:foreground="@color/transparent"
+        android:indeterminateTint="@color/colorGray"
+        android:progressBackgroundTint="@android:color/transparent"
+        android:progressDrawable="@color/transparent"
+        android:scrollbarThumbHorizontal="@color/transparent"
+        android:scrollbarThumbVertical="@android:color/transparent" />
+
+</RelativeLayout>

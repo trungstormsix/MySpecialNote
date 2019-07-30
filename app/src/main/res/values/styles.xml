@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <item name="colorControlNormal">@color/colorTrueBlack</item>
+        <!-- Change item background hihi dmm -->
+        <item name="android:itemBackground">@color/colorWhite</item>
+
+        <!-- Chang color of item text hehe dmm -->
+        <item name="android:textColor">@color/colorTrueBlack</item>
+
+        <item name="android:textColorSecondary">@color/colorTrueBlack</item>
+        <item name="android:textColorPrimary">@color/colorTrueBlack</item>
+        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:homeAsUpIndicator">@drawable/round_arrow_back_24</item>
+
+    </style>
+
+    <style name="FAB">
+        <item name="android:elevation">16dp</item>
+        <item name="android:background">@drawable/fab_background</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:backgroundTint">#6E84FF</item>
+
+    </style>
+
+    <!-- Item ImageView Style -->
+    <!--<style name="ItemImageView">-->
+        <!--<item name="android:background"></item>-->
+    <!--</style>-->
+</resources>
