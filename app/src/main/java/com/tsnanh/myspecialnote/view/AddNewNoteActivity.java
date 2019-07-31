@@ -120,7 +120,7 @@ public class AddNewNoteActivity extends AppCompatActivity implements View.OnClic
                 model.setNoteTitle(noteTitle);
                 model.setNoteContent(noteContent);
                 model.setDatetime(Utilities.getDateTime());
-                model.setColor(Utilities.randomColor());
+                model.setColor(Utilities.randomColor(this));
                 Utilities.hideSoftKeyBoard(this);
 
                 Message message = new Message();

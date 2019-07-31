@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final MenuItem searchItem = menu.findItem(R.id.app_bar_search);
 
-        SearchView searchView = (SearchView) searchItem.getActionView();
+        final SearchView searchView = (SearchView) searchItem.getActionView();
 
         searchView.setQueryHint("Tìm kiếm trong MS Note");
 
@@ -162,6 +162,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 setMenuItemVisibility(menu, searchItem, false);
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(final String s) {
+                if (!s.isEmpty()) {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            super.run();
+                            ArrayList<NoteModel> arr = new ArrayList<>();
+                            arr.addAll(daoSession.getNoteModelDao().queryRaw("where NoteTitle like '"+s+"%' or NoteContent like '"+s+"%'"));
+                            Message message = new Message();
+                            message.obj = arr;
+                            message.what = 1;
+                            handlerSearch.sendMessage(message);
+                        }
+                    }.start();
+                } else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            lstNotes.setAdapter(noteAdapter);
+                            noteAdapter.notifyDataSetChanged();
+                            handlerSearch.sendEmptyMessage(0);
+                        }
+                    });
+                }
+                return true;
             }
         });
 
@@ -174,6 +209,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         return true;
     }
+
+    Handler handlerSearch = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message message) {
+            if (message.what != 0) {
+                ArrayList<NoteModel> arr = (ArrayList<NoteModel>) message.obj;
+                if (arr.size() != 0) {
+                    NoteAdapter adapter = new NoteAdapter(MainActivity.this, arr);
+                    lstNotes.setAdapter(adapter);
+                    lstNotes.setVisibility(View.VISIBLE);
+                } else {
+                    lstNotes.setVisibility(View.INVISIBLE);
+                }
+            } else {
+                lstNotes.setVisibility(View.VISIBLE);
+            }
+            return true;
+        }
+    });
 
     private void setMenuItemVisibility(final Menu menu, MenuItem searchItem, boolean b) {
             MenuItem item = menu.getItem(1);

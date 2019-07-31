@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
+import com.tsnanh.myspecialnote.R;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
@@ -65,12 +67,10 @@ public final class Utilities {
         return bitmap;
     }
 
-    public static int randomColor() {
-        Random rand = new Random();
-        int r = rand.nextInt(255);
-        int g = rand.nextInt(255);
-        int b = rand.nextInt(255);
-        return Color.rgb(r, g, b);
+    public static int randomColor(Context context) {
+        int[] colors = context.getResources().getIntArray(R.array.androidcolors);
+        int colorSelected = colors[new Random().nextInt(colors.length)];
+        return colorSelected;
     }
 
     public static void deleteOldImage(Context context, String name) {
